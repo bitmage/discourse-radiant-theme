@@ -125,12 +125,10 @@ textarea:focus {
 // Header
 // *------------------------------------------------*
 .d-header {
-  background-color: $color-white;
   box-shadow: none;
   height: 5em;
   .d-header-icons {
     .d-icon {
-      color: $header_primary;
       font-size: 1.511em;
     }
   }
