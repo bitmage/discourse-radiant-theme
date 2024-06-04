@@ -168,8 +168,7 @@ textarea:focus {
   box-shadow: 8px 8px $color-light-violet;
   transition: 0.3s;
 }
-
-.btn {
+:not(.sidebar-section-header,.sidebar-more-section-links-details-summary).btn {
   border-radius: $radius-4;
   background: $color-mud;
   color: $primary-high;
