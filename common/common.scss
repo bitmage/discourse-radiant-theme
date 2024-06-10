@@ -167,6 +167,10 @@ button.login-button {
   display: none;
 }
 
+.sidebar-section-link-wrapper[data-list-item-name=all-categories] {
+  display: none;
+}
+
 // Buttons
 // *------------------------------------------------*
 #create-topic {
