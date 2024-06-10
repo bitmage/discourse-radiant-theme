@@ -152,6 +152,21 @@ textarea:focus {
   border-radius: $radius-8;
 }
 
+button.sign-up-button {
+  display: none;
+}
+
+button.login-button {
+  display: none;
+}
+
+// Nav
+// *------------------------------------------------*
+
+.sidebar-section[data-section-name=messages] {
+  display: none;
+}
+
 // Buttons
 // *------------------------------------------------*
 #create-topic {
