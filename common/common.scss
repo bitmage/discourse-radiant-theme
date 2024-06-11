@@ -122,6 +122,10 @@ textarea:focus {
   }
 }
 
+button.invite, button.new-topic {
+  display: none;
+}
+
 // Header
 // *------------------------------------------------*
 .d-header {
