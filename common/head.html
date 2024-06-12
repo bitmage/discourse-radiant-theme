@@ -1,0 +1,15 @@
+<script>
+  window.addEventListener('load', function () {
+
+    // if the page we're on is on this list of categories
+    const target_categories = ['initiatives']
+    const regex_category_page = /\/c\/(\w+)\/\d+/
+    const matches = window.location.pathname.match(regex_category_page)
+    if (matches[1] != null && target_categories.includes(matches[1])) {
+
+      // then remove topics from the listing
+      document.querySelector('.topic-list-body').style = 'display: none'
+      document.querySelector('.topic-list-bottom > .footer-message').style = 'display: none'
+    }
+  })
+</script>
