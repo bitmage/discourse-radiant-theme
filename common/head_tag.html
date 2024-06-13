@@ -1,6 +1,11 @@
-<!--THIS SCRIPT DOESN'T LOAD-->
-<script type="text/discourse-plugin" version="0.1">
-  console.log('loaded discourse plugin script') // this will never be called
+<script type="text/discourse-plugin" version="1.24.0">
+  console.log('loaded discourse plugin script')
+  api.onPageChange(() => {
+    const regex_category_page = /\/c\/(\w+)\/\d+/
+    const matches = window.location.pathname.match(regex_category_page)
+    console.log('current category:', matches[1])
+  })
+
   function remove_topics() {
     // if the page we're on is on this list of categories
     const target_categories = ['initiatives']
@@ -24,13 +29,12 @@
       document.head.appendChild(tag)
     }
   }
-  remove_topics()
 </script>
 
 <script>
-  $(document).ajaxComplete(function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const regex_category_page = /\/c\/(\w+)\/\d+/
     const matches = window.location.pathname.match(regex_category_page)
-    console.log('current page:', matches[1])
+    console.log('category page loaded:', matches[1])
   })
 </script>
