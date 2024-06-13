@@ -181,6 +181,10 @@ button.login-button {
   width: var(--max-height) !important;
 }
 
+.topic-list-bottom > .footer-message {
+  display: none !important;
+}
+
 // Buttons
 // *------------------------------------------------*
 #create-topic {
