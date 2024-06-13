@@ -12,7 +12,7 @@
     const target_categories = ['initiatives']
     const regex_category_page = /\/c\/(\w+)\/\d+/
     const matches = window.location.pathname.match(regex_category_page)
-    if (matches[1] != null && target_categories.includes(matches[1])) {
+    if (matches != null && target_categories.includes(matches[1])) {
 
       // then create a style tag to remove topics from the listing
       const styles = `
