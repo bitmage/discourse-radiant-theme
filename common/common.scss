@@ -175,6 +175,12 @@ button.login-button {
   display: none;
 }
 
+// Category
+.category-box .category-logo.aspect-image img {
+  height: var(--max-height) !important;
+  width: var(--max-height) !important;
+}
+
 // Buttons
 // *------------------------------------------------*
 #create-topic {
