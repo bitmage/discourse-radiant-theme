@@ -17,11 +17,11 @@
       `
       const tag = document.createElement('style')
       tag.type = 'text/css'
-      if (style.styleSheet) {
-        style.styleSheet.cssText = css
+      if (tag.styleSheet) {
+        tag.styleSheet.cssText = css
       }
       else {
-        style.appendChild(document.createTextNode(css))
+        tag.appendChild(document.createTextNode(css))
       }
     }
   }
