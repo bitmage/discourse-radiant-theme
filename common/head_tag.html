@@ -1,9 +1,8 @@
 <script type="text/discourse-plugin" version="1.24.0">
-  console.log('loaded discourse plugin script')
   api.onPageChange(() => {
     const regex_category_page = /\/c\/(\w+)\/\d+/
     const matches = window.location.pathname.match(regex_category_page)
-    console.log('current category:', matches[1])
+    remove_topics()
   })
 
   function remove_topics() {
@@ -29,12 +28,4 @@
       document.head.appendChild(tag)
     }
   }
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const regex_category_page = /\/c\/(\w+)\/\d+/
-    const matches = window.location.pathname.match(regex_category_page)
-    console.log('category page loaded:', matches[1])
-  })
 </script>
