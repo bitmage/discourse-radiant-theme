@@ -3,10 +3,7 @@
 </script>
 
 <script>
-  console.log('loaded my script')
-  window.addEventListener('load', function () {
-    console.log('page loaded')
-
+  function remove_topics() {
     // if the page we're on is on this list of categories
     const target_categories = ['initiatives']
     const regex_category_page = /\/c\/(\w+)\/\d+/
@@ -17,6 +14,13 @@
       document.querySelector('.topic-list-body').style = 'display: none'
       document.querySelector('.topic-list-bottom > .footer-message').style = 'display: none'
     }
+  }
+  console.log('removing topics first time...')
+  remove_topics()
+
+  window.addEventListener('load', function () {
+    console.log('removing topics after page load')
+    remove_topics()
   })
 </script>
 
