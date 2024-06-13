@@ -12,8 +12,8 @@
 
       // then create a style tag to remove topics from the listing
       const styles = `
-        .topic-list-body' {'display: none';}
-        .topic-list-bottom > .footer-message {'display: none';}
+        .topic-list-body {display: none !important;}
+        .topic-list-bottom > .footer-message {display: none !important;}
       `
       const tag = document.createElement('style')
       tag.type = 'text/css'
@@ -21,11 +21,11 @@
         tag.styleSheet.cssText = styles
       }
       else {
-        tag.appendChild(document.createTextNode(css))
+        tag.appendChild(document.createTextNode(styles))
       }
+      document.head.appendChild(tag)
     }
   }
-  console.log('removing topics first time...')
   remove_topics()
 
   // window.addEventListener('load', function () {
