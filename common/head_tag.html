@@ -1,4 +1,6 @@
 <script type="text/discourse-plugin" version="1.24.0">
+  const tag_id = 'remove-topics-from-categories'
+
   api.onPageChange(() => {
     const regex_category_page = /\/c\/(\w+)\/\d+/
     const matches = window.location.pathname.match(regex_category_page)
@@ -19,6 +21,7 @@
       `
       const tag = document.createElement('style')
       tag.type = 'text/css'
+      tag.id = tag_id
       if (tag.styleSheet) {
         tag.styleSheet.cssText = styles
       }
@@ -26,6 +29,10 @@
         tag.appendChild(document.createTextNode(styles))
       }
       document.head.appendChild(tag)
+    } else {
+
+      // otherwise, remove the tag so other pages can see these items
+      document.querySelectorAll('#' + tag_id).forEach(el => el.remove())
     }
   }
 </script>
