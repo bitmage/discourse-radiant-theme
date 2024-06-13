@@ -1,5 +1,8 @@
-
 <script type="text/discourse-plugin">
+  console.log('loaded discourse plugin script')
+</script>
+
+<script>
   console.log('loaded my script')
   window.addEventListener('load', function () {
     console.log('page loaded')
@@ -15,10 +18,6 @@
       document.querySelector('.topic-list-bottom > .footer-message').style = 'display: none'
     }
   })
-</script>
-
-<script>
-  console.log('plain script tag')
 </script>
 
 <script type="text/javascript">
