@@ -1,35 +1,36 @@
 <!--THIS SCRIPT DOESN'T LOAD-->
-<script type="text/discourse-plugin">
-function remove_topics() {
-  // if the page we're on is on this list of categories
-  const target_categories = ['initiatives']
-  const regex_category_page = /\/c\/(\w+)\/\d+/
-  const matches = window.location.pathname.match(regex_category_page)
-  if (matches[1] != null && target_categories.includes(matches[1])) {
+<script type="text/discourse-plugin" version="0.1">
+  console.log('loaded discourse plugin script') // this will never be called
+  function remove_topics() {
+    // if the page we're on is on this list of categories
+    const target_categories = ['initiatives']
+    const regex_category_page = /\/c\/(\w+)\/\d+/
+    const matches = window.location.pathname.match(regex_category_page)
+    if (matches[1] != null && target_categories.includes(matches[1])) {
 
-    // then create a style tag to remove topics from the listing
-    const styles = `
-      .topic-list-body {display: none !important;}
-      .topic-list-bottom > .footer-message {display: none !important;}
-    `
-    const tag = document.createElement('style')
-    tag.type = 'text/css'
-    if (tag.styleSheet) {
-      tag.styleSheet.cssText = styles
+      // then create a style tag to remove topics from the listing
+      const styles = `
+        .topic-list-body {display: none !important;}
+        .topic-list-bottom > .footer-message {display: none !important;}
+      `
+      const tag = document.createElement('style')
+      tag.type = 'text/css'
+      if (tag.styleSheet) {
+        tag.styleSheet.cssText = styles
+      }
+      else {
+        tag.appendChild(document.createTextNode(styles))
+      }
+      document.head.appendChild(tag)
     }
-    else {
-      tag.appendChild(document.createTextNode(styles))
-    }
-    document.head.appendChild(tag)
   }
-}
-remove_topics()
+  remove_topics()
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const regex_category_page = /\/c\/(\w+)\/\d+/
-  const matches = window.location.pathname.match(regex_category_page)
-  console.log('current page:', matches[1])
-})
+  $(document).ajaxComplete(function() {
+    const regex_category_page = /\/c\/(\w+)\/\d+/
+    const matches = window.location.pathname.match(regex_category_page)
+    console.log('current page:', matches[1])
+  })
 </script>
