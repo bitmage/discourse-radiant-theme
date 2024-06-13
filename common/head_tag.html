@@ -10,18 +10,28 @@
     const matches = window.location.pathname.match(regex_category_page)
     if (matches[1] != null && target_categories.includes(matches[1])) {
 
-      // then remove topics from the listing
-      document.querySelector('.topic-list-body').style = 'display: none'
-      document.querySelector('.topic-list-bottom > .footer-message').style = 'display: none'
+      // then create a style tag to remove topics from the listing
+      const styles = `
+        .topic-list-body' {'display: none';}
+        .topic-list-bottom > .footer-message {'display: none';}
+      `
+      const tag = document.createElement('style')
+      style.type = 'text/css'
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css
+      }
+      else {
+        style.appendChild(document.createTextNode(css))
+      }
     }
   }
   console.log('removing topics first time...')
   remove_topics()
 
-  window.addEventListener('load', function () {
-    console.log('removing topics after page load')
-    remove_topics()
-  })
+  // window.addEventListener('load', function () {
+  //   console.log('removing topics after page load')
+  //   remove_topics()
+  // })
 </script>
 
 <script type="text/javascript">
