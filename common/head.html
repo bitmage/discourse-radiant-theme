@@ -1,3 +1,4 @@
+
 <script type="text/discourse-plugin">
   console.log('loaded my script')
   window.addEventListener('load', function () {
@@ -14,4 +15,12 @@
       document.querySelector('.topic-list-bottom > .footer-message').style = 'display: none'
     }
   })
+</script>
+
+<script>
+  console.log('plain script tag')
+</script>
+
+<script type="text/javascript">
+  console.log('javascript tag')
 </script>
