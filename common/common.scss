@@ -1,4 +1,5 @@
 @import "variables";
+@import "custom";
 
 // INPUT FIELDS - SELECT - DROPDOWNS
 // *------------------------------------------------*
@@ -122,13 +123,10 @@ textarea:focus {
   }
 }
 
-button.invite, button.new-topic {
-  display: none;
-}
-
 // Header
 // *------------------------------------------------*
 .d-header {
+  // background-color: $color-white; MODIFIED: don't override background color of header
   box-shadow: none;
   height: 5em;
   .d-header-icons {
@@ -156,49 +154,6 @@ button.invite, button.new-topic {
   border-radius: $radius-8;
 }
 
-// hide the icon on the login button
-button.login-button > .d-icon-user {
-  display: none;
-}
-
-// button.sign-up-button {
-//   display: none;
-// }
-//
-// button.login-button {
-//   display: none;
-// }
-
-// About
-// *------------------------------------------------*
-section.about.description {
-  margin-bottom: 0;
-}
-
-section.about.stats {
-  display: none;
-}
-
-// Nav
-// *------------------------------------------------*
-
-.sidebar-section[data-section-name=messages], .sidebar-section[data-section-name=tags] {
-  display: none;
-}
-
-.sidebar-section-link-wrapper[data-list-item-name=all-categories] {
-  display: none;
-}
-
-// Category
-.category-box .category-logo.aspect-image img {
-  height: var(--max-height) !important;
-  width: var(--max-height) !important;
-}
-
-.topic-list-bottom > .footer-message {
-  display: none !important;
-}
 
 // Buttons
 // *------------------------------------------------*
@@ -216,6 +171,8 @@ section.about.stats {
   box-shadow: 8px 8px $color-light-violet;
   transition: 0.3s;
 }
+
+// MODIFIED: don't highlight nav bar buttons
 :not(.sidebar-section-header,.sidebar-more-section-links-details-summary).btn {
   border-radius: $radius-4;
   background: $color-mud;
