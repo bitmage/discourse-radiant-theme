@@ -9,8 +9,7 @@
 
   function remove_topics() {
     // if the page we're on is on this list of categories
-    const target_categories = []
-    //const target_categories = ['experts', 'initiatives']
+    const target_categories = ['experts', 'initiatives']
     const regex_category_page = /\/c\/(\w+)\/\d+/
     const matches = window.location.pathname.match(regex_category_page)
     if (matches != null && target_categories.includes(matches[1])) {
