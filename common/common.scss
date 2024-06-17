@@ -156,6 +156,11 @@ button.invite, button.new-topic {
   border-radius: $radius-8;
 }
 
+// hide the icon on the login button
+button.login-button > .d-icon-user {
+  display: none;
+}
+
 // button.sign-up-button {
 //   display: none;
 // }
