@@ -41,7 +41,21 @@ section.about.stats {
   display: none;
 }
 
+.sidebar-section-wrapper.sidebar-section[data-section-name="community"] {
+  order: 1;
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="categories"] {
+  order: 2;
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="support-us"] {
+  order: 3;
+}
+.sidebar-section-wrapper.sidebar-section[data-section-name="social"] {
+  order: 4;
+}
+
 // Category
+// *------------------------------------------------*
 .category-box .category-logo.aspect-image img {
   height: var(--max-height) !important;
   width: var(--max-height) !important;
@@ -50,3 +64,4 @@ section.about.stats {
 .topic-list-bottom > .footer-message {
   display: none !important;
 }
+
