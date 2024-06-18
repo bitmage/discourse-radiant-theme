@@ -1,14 +1,16 @@
 <script type="text/discourse-plugin" version="1.24.0">
   const tag_id = 'remove-topics-from-categories'
+  const regex_category_page = /\/c\/(\w+)\/\d+/
+  const regex_product_page = /\/s\/(\w+)/
 
   api.onPageChange(() => {
     remove_topics()
+    subscribe_selector()
   })
 
   function remove_topics() {
     // if the page we're on is on this list of categories
     const target_categories = ['experts', 'initiatives']
-    const regex_category_page = /\/c\/(\w+)\/\d+/
     const matches = window.location.pathname.match(regex_category_page)
     if (matches != null && target_categories.includes(matches[1])) {
 
@@ -30,6 +32,17 @@
 
       // otherwise, remove the tag so other pages can see these items
       document.querySelectorAll('#' + tag_id).forEach(el => el.remove())
+    }
+  }
+
+  function subscribe_selector() {
+    // if we're on the subscription page
+    const target_products = ['prod_QGl85xW80N0SQz']
+    const matches = window.location.pathname.match(regex_product_page)
+    if (matches != null && target_categories.includes(matches[1])) {
+      [...document.querySelectorAll('.btn-discourse-subscriptions-subscribe')]
+        .filter(el => el.querySelector('.amount')?.textContent?.includes('$'))
+        .forEach(el => el.style = 'display: none;')
     }
   }
 </script>
