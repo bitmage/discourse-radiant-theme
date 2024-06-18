@@ -35,14 +35,55 @@
     }
   }
 
+  // currency should be either £ or $
+  const currency_options = ['£', '$']
+  function show_subscribe_options(currency) {
+    if (!currency_options.includes(currency)) throw `invalid currency option: ${currency}`
+    [...document.querySelectorAll('.btn-discourse-subscriptions-subscribe')].forEach(el => {
+      if (el.querySelector('.amount')?.textContent?.includes(currency)) {
+        el.style = ''
+      } else {
+        el.style = 'display: none;'
+      }
+    })
+  }
+
+  function display_currency_dropdown() {
+    // find the plans section
+    const plans_section = document.querySelector('.subscribe-buttons').parentElement
+    const plans_description = payment_section.querySelector('p')
+
+    // construct a currency dropdown
+    const currency_dropdown = document.createElement('select')
+    currency_dropdown.id = 'currency-dropdown'
+    currency_dropdown.style = 'display: inline-block; margin-left: 1em;'
+    currency_options.forEach(o => {
+      const el = document.createElement('option')
+      el.value = o
+      el.text = o
+      currency_dropdown.appendChild(el)
+    })
+
+    // when the currency dropdown updates, hide/show the appropriate plans
+    currency_dropdown.addEventListener('change', e => {
+      console.log('currency changed:', e.target)
+    })
+    show_subscribe_options()
+
+    // put the dropdown after the description
+    plans_description.style = 'display: inline-block;'
+    plans_description.after(currency_dropdown)
+  }
+
   function subscribe_selector() {
     // if we're on the subscription page
     const target_products = ['prod_QGl85xW80N0SQz']
     const matches = window.location.pathname.match(regex_product_page)
     if (matches != null && target_products.includes(matches[1])) {
-      [...document.querySelectorAll('.btn-discourse-subscriptions-subscribe')]
-        .filter(el => el.querySelector('.amount')?.textContent?.includes('$'))
-        .forEach(el => el.style = 'display: none;')
+
+      // show £ by default
+      show_subscribe_options('£')
+      display_currency_dropdown()
     }
   }
 </script>
