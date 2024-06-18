@@ -38,9 +38,11 @@
   // currency should be either £ or $
   const currency_options = ['£', '$']
   function show_subscribe_options(currency) {
-    if (!currency_options.includes(currency)) throw `invalid currency option: ${currency}`
+    if (!currency_options.includes(currency)) throw 'invalid currency option: ' + currency
     [...document.querySelectorAll('.btn-discourse-subscriptions-subscribe')].forEach(el => {
-      if (el.querySelector('.amount')?.textContent?.includes(currency)) {
+      if (el.querySelector('.amount') &&
+      el.querySelector('.amount').textContent &&
+      el.querySelector('.amount').textContent.includes(currency)) {
         el.style = ''
       } else {
         el.style = 'display: none;'
