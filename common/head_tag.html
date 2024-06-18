@@ -39,7 +39,7 @@
     // if we're on the subscription page
     const target_products = ['prod_QGl85xW80N0SQz']
     const matches = window.location.pathname.match(regex_product_page)
-    if (matches != null && target_categories.includes(matches[1])) {
+    if (matches != null && target_products.includes(matches[1])) {
       [...document.querySelectorAll('.btn-discourse-subscriptions-subscribe')]
         .filter(el => el.querySelector('.amount')?.textContent?.includes('$'))
         .forEach(el => el.style = 'display: none;')
