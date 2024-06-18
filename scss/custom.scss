@@ -80,3 +80,10 @@ section.about.stats {
 .custom-gated-topic-content--cta__signup > button.sign-up-button {
   // should we change the background color of the button? (it's yellow on yellow with gray hover)
 }
+
+// Subscriptions
+// *------------------------------------------------*
+:not(.sidebar-section-header,.sidebar-more-section-links-details-summary).btn.btn-primary {
+  color: var(--secondary);
+  background-color: var(--tertiary);
+}
