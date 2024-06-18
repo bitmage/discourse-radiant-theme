@@ -2,8 +2,6 @@
   const tag_id = 'remove-topics-from-categories'
 
   api.onPageChange(() => {
-    const regex_category_page = /\/c\/(\w+)\/\d+/
-    const matches = window.location.pathname.match(regex_category_page)
     remove_topics()
   })
 

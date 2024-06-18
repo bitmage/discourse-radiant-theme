@@ -20,6 +20,12 @@ button.login-button > .d-icon-user {
 //   display: none;
 // }
 
+// Accent
+// *------------------------------------------------*
+#main-outlet-wrapper #main-outlet {
+  border-top: 8px solid #e9e9e9;
+}
+
 // About
 // *------------------------------------------------*
 section.about.description {
@@ -65,3 +71,12 @@ section.about.stats {
   display: none !important;
 }
 
+// Gated Topic
+// *------------------------------------------------*
+.custom-gated-topic-container {
+  background-color: #ffef3f;
+}
+
+.custom-gated-topic-content--cta__signup > button.sign-up-button {
+  // should we change the background color of the button? (it's yellow on yellow with gray hover)
+}
