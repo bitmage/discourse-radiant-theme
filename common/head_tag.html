@@ -8,6 +8,9 @@
     subscribe_selector()
   })
 
+  // Remove Topics from Categories Pages
+  // (so only the subcategories will display)
+  // *------------------------------------------------*
   function remove_topics() {
     // if the page we're on is on this list of categories
     const target_categories = ['experts', 'initiatives']
@@ -25,9 +28,9 @@
         tag.styleSheet.cssText = styles
       }
       else {
-        tag.appendChild(document.createTextNode(styles))
+        tag.append(document.createTextNode(styles))
       }
-      document.head.appendChild(tag)
+      document.head.append(tag)
     } else {
 
       // otherwise, remove the tag so other pages can see these items
@@ -35,6 +38,8 @@
     }
   }
 
+  // Provide a currency selector to filter subscription plans
+  // *------------------------------------------------*
   // currency should be either £ or $
   const currency_options = ['£', '$']
   function show_subscribe_options(currency) {
@@ -61,7 +66,7 @@
       const el = document.createElement('option')
       el.value = o
       el.text = o
-      currency_dropdown.appendChild(el)
+      currency_dropdown.append(el)
     })
 
     // when the currency dropdown updates, hide/show the appropriate plans
@@ -76,15 +81,34 @@
     plans_description.after(currency_dropdown)
   }
 
+  // hacky hacky way of getting additional HTML into the subscription page
+  function update_description() {
+    const container = document.querySelector('.discourse-subscriptions-confirmation-billing')
+    const hr = container.querySelector('hr')
+
+    const first = document.createElement('p')
+    first.textContent = 'Our Shows, News, and Articles are here to raise awareness and will always remain free.  In addition you can participate in conversations in many areas of the forum, but may not be able to create new posts.'
+
+    const third = document.createElement('p')
+    third.textContent = 'As a non-profit organisation, 100% of your membership funds are applied to our mission: Raising awareness about the rise of Stakeholder Capitalism and promoting discussion and formation of alternatives.  As we develop the platform we will continue to look for ways to enable our community to collect, envision, and build a brighter future.  We thank you for your support, and for joining us on this journey!'
+
+    const salutation = document.createElement('p')
+    salutation.textContent = 'Richard and Brandon'
+
+    hr.after(first)
+    container.append(third)
+    container.append(salutation)
+  }
+
   function subscribe_selector() {
     // if we're on the subscription page
     const target_products = ['prod_QGl85xW80N0SQz']
     const matches = window.location.pathname.match(regex_product_page)
     if (matches != null && target_products.includes(matches[1])) {
 
-      // show £ by default
-      show_subscribe_options('£')
+      show_subscribe_options('£') // show £ by default
       display_currency_dropdown()
+      update_description()
     }
   }
 </script>
