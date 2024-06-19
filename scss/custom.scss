@@ -84,7 +84,7 @@ section.about.stats {
 // Subscriptions
 // *------------------------------------------------*
 // this fixes an override in common.scss:176
-:not(.sidebar-section-header,.sidebar-more-section-links-details-summary).btn.btn-primary {
+.subscribe-buttons .btn.btn-primary {
   color: var(--secondary);
   background-color: var(--tertiary);
   &:hover,
