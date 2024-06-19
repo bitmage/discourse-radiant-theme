@@ -122,14 +122,17 @@
 
   function add_donate_button() {
     const footer = document.querySelector('.sidebar-footer-wrapper')
-    const button_embed = `<div style="width: 200px">
-      <stripe-buy-button
-          buy-button-id="buy_btn_1PTVIRIdwyDCjzwhf7PlhZ5X"
-          publishable-key="pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE">
-      </stripe-buy-button>
-    </div>`
+    const button_embed = `<stripe-buy-button
+        buy-button-id="buy_btn_1PTVIRIdwyDCjzwhf7PlhZ5X"
+        publishable-key="pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE">
+    </stripe-buy-button>`
 
     footer.insertAdjacentHTML('afterbegin', button_embed)
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<style>
+button.BuyButton-Button {
+  width: 200px;
+}
+</style>
