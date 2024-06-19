@@ -122,6 +122,7 @@
 
   function add_donate_button() {
     const footer = document.querySelector('.sidebar-footer-wrapper')
+    if (footer.querySelector('stripe-buy-button')) return
 
     // add the stripe button to the page
     const button_embed = document.createElement('stripe-buy-button')
