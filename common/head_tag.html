@@ -7,6 +7,7 @@
     remove_topics()
     subscribe_selector()
     remove_subscribe_when_not_logged_in()
+    add_donate_button()
   })
 
   // Remove Topics (from Categories Pages)
@@ -117,5 +118,20 @@
   function remove_subscribe_when_not_logged_in() {
     if (api.getCurrentUser()) return
     document.querySelector('.custom-header-links a[href="/s"]').parentElement.remove()
+  }
+
+  function add_donate_button() {
+    const footer = document.querySelector('.sidebar-footer-actions')
+    const button_embed = `<script async
+        src="https://js.stripe.com/v3/buy-button.js">
+      </script>
+
+      <stripe-buy-button
+          buy-button-id="buy_btn_1PTVIRIdwyDCjzwhf7PlhZ5X"
+          publishable-key="pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE"
+          >
+      </stripe-buy-button>`
+
+    footer.insertAdjacentHTML('afterbegin', button_embed)
   }
 </script>
