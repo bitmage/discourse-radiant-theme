@@ -116,6 +116,6 @@
 
   function remove_subscribe_when_not_logged_in() {
     if (api.getCurrentUser()) return
-    document.querySelector('.custom-header-links a[href=/s]').parentElement.remove()
+    document.querySelector('.custom-header-links a[href="/s"]').parentElement.remove()
   }
 </script>
