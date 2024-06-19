@@ -122,17 +122,18 @@
 
   function add_donate_button() {
     const footer = document.querySelector('.sidebar-footer-wrapper')
-    const button_embed = `<stripe-buy-button
-        buy-button-id="buy_btn_1PTVIRIdwyDCjzwhf7PlhZ5X"
-        publishable-key="pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE">
-    </stripe-buy-button>`
+
+    // create a style tag to add to the stripe button's shadow dom
+    const button_style = document.createElement('style')
+    button_style.innerHTML = 'button.BuyButton-Button {width: 200px;}'
+
+    // add the stripe button to the page
+    const button_embed = document.createElement('stripe-buy-button')
+    button_embed.setAttribute('buy-button-id', 'buy_btn_1PTVIRIdwyDCjzwhf7PlhZ5X')
+    button_embed.setAttribute('publishable-key', 'pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE')
+    button_embed.shadowRoot.append(button_style)
 
     footer.insertAdjacentHTML('afterbegin', button_embed)
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-<style>
-button.BuyButton-Button {
-  width: 200px;
-}
-</style>
