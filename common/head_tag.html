@@ -121,8 +121,13 @@
   }
 
   function add_donate_button() {
-    const footer = document.querySelector('.sidebar-footer-wrapper')
+    const footer = document.querySelector('.sidebar-footer-actions')
     if (footer.querySelector('stripe-buy-button')) return
+
+    // trash whatever is there
+    while (footer.firstChild) {
+      footer.removeChild(footer.lastChild);
+    }
 
     // add the stripe button to the page
     const button_embed = document.createElement('stripe-buy-button')
@@ -137,8 +142,3 @@
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-<style>
-.sidebar-footer-container {
-  margin-top: 10px;
-}
-</style>
