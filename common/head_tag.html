@@ -133,7 +133,8 @@
     button_embed.setAttribute('publishable-key', 'pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE')
     button_embed.shadowRoot.append(button_style)
 
-    footer.insertAdjacentHTML('afterbegin', button_embed)
+    //footer.insertAdjacentHTML('afterbegin', button_embed)
+    footer.prepend(button_embed)
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
