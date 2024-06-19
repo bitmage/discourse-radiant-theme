@@ -6,9 +6,10 @@
   api.onPageChange(() => {
     remove_topics()
     subscribe_selector()
+    remove_subscribe_when_not_logged_in()
   })
 
-  // Remove Topics from Categories Pages
+  // Remove Topics (from Categories Pages)
   // (so only the subcategories will display)
   // *------------------------------------------------*
   function remove_topics() {
@@ -38,7 +39,8 @@
     }
   }
 
-  // Provide a currency selector to filter subscription plans
+  // Subscribe Selector
+  // (Provide a currency selector to filter subscription plans)
   // *------------------------------------------------*
   // currency should be either £ or $
   const currency_options = ['£', '$']
@@ -110,5 +112,10 @@
       display_currency_dropdown()
       update_description()
     }
+  }
+
+  function remove_subscribe_when_not_logged_in() {
+    if (api.getCurrentUser()) return
+    document.querySelector('.custom-header-links a[href=/s]').parentElement.remove()
   }
 </script>
