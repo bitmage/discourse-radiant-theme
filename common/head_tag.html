@@ -144,15 +144,17 @@
       footer.prepend(button_embed)
     }
 
-    function whenShadowDomIsReady() {
+    function whenShadowDomIsReady(fn) {
       if (button_embed.shadowRoot) {
         console.log('overriding style')
         overrideStyle()
       } else {
         console.log('waiting til ready...')
-        setTimeout(whenShadowDomIsReady, 10)
+        setTimeout(fn, 10)
       }
     }
+
+    whenShadowDomIsReady(overrideStyle)
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
