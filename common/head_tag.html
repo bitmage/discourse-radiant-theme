@@ -146,8 +146,10 @@
 
     function whenShadowDomIsReady() {
       if (button_embed.shadowRoot) {
+        console.log('overriding style')
         overrideStyle()
       } else {
+        console.log('waiting til ready...')
         setTimeout(whenShadowDomIsReady, 10)
       }
     }
