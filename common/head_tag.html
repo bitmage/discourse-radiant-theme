@@ -144,12 +144,12 @@
       footer.prepend(button_embed)
     }
 
+    // I had some issues with the querySelector code erroring out in the shadow DOM...
+    // solving that through polling
     function whenShadowDomIsReady(fn) {
       if (button_embed.shadowRoot) {
-        console.log('overriding style')
         overrideStyle()
       } else {
-        console.log('waiting til ready...')
         setTimeout(fn, 10)
       }
     }
