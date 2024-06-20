@@ -136,13 +136,21 @@
     button_embed.setAttribute('buy-button-id', 'buy_btn_1PTVIRIdwyDCjzwhf7PlhZ5X')
     button_embed.setAttribute('publishable-key', 'pk_live_51IDs5BIdwyDCjzwhKGrADpwGPeLBRjEr5GGo9bXFn9WE1F9JpreSaLtPyIffsCHbcYxK0iDduNkorgnhuRIfDdQc00ISSdXiYE')
 
-    setTimeout(function() {
+    function overrideStyle() {
       // override the button style to make the width: 200px
-      button_embed.shadowRoot?.querySelector('iframe').style = "display: inline-block !important;margin: 0px !important;padding: 0px !important;border: none !important;width: 200px !important;height: 44px !important;transition: height 0.01s linear 0s !important;color-scheme: light only !important;"
+      button_embed.shadowRoot.querySelector('iframe').style = "display: inline-block !important;margin: 0px !important;padding: 0px !important;border: none !important;width: 200px !important;height: 44px !important;transition: height 0.01s linear 0s !important;color-scheme: light only !important;"
 
       //footer.insertAdjacentHTML('afterbegin', button_embed)
       footer.prepend(button_embed)
-    }, 10)
+    }
+
+    funciton whenShadowDomIsReady() {
+      if (button_embed.shadowRoot) {
+        overrideStyle()
+      } else {
+        setTimeout(whenShadowDomIsReady, 10)
+      }
+    }
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
