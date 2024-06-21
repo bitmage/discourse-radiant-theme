@@ -47,17 +47,8 @@ section.about.stats {
   display: none;
 }
 
-.sidebar-section-wrapper.sidebar-section[data-section-name="community"] {
-  order: 1;
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="categories"] {
-  order: 2;
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="support-us"] {
-  order: 3;
-}
-.sidebar-section-wrapper.sidebar-section[data-section-name="social"] {
-  order: 4;
+.sidebar-footer-container {
+  justify-content: center;
 }
 
 // Category
