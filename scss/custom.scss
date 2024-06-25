@@ -12,6 +12,13 @@ button.login-button > .d-icon-user {
   display: none;
 }
 
+.custom-header-links li a {
+  padding: .6em 1em;
+  background-color: #ffef3f;
+  filter: drop-shadow(3px 3px 4px rgb(33 33 33 / 20%));
+  border-radius: 4px;
+}
+
 // button.sign-up-button {
 //   display: none;
 // }
