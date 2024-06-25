@@ -51,6 +51,10 @@ section.about.stats {
   justify-content: center;
 }
 
+.sidebar-section-header-wrapper {
+  display: none;
+}
+
 // Category
 // *------------------------------------------------*
 .category-box .category-logo.aspect-image img {
@@ -85,6 +89,8 @@ section.about.stats {
   }
 }
 
+// Global
+// *------------------------------------------------*
 // override tertiary color for links
 // but don't set this too strongly (e.g. !important) as links in other areas may be colored differently
 a {
