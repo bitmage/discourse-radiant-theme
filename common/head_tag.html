@@ -6,10 +6,10 @@
   // Each helper function here is a "feature" that triggers when its conditions are met.
   // For instance: if we're on the target page.
   api.onPageChange(() => {
-    // console.log('page changed:', window.location.pathname)
+    console.log('page changed:', window.location.pathname)
     remove_topics()
     subscribe_selector()
-    remove_subscribe_when_not_logged_in()
+    remove_header_links_when_not_logged_in()
     add_donate_button()
     watch_hamburger_menu()
   })
@@ -122,7 +122,7 @@
     }
   }
 
-  function remove_subscribe_when_not_logged_in() {
+  function remove_header_links_when_not_logged_in() {
     if (api.getCurrentUser()) return
     document.querySelector('.custom-header-links a[href="/s"]').parentElement.remove()
     document.querySelector('li.header-icon-messages').remove()
@@ -130,6 +130,7 @@
   }
 
   function add_donate_button() {
+    console.log('adding donate button')
     // locate the sidebar footer
     const footer = document.querySelector('.sidebar-footer-actions')
 
