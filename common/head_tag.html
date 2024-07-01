@@ -6,7 +6,7 @@
   // Each helper function here is a "feature" that triggers when its conditions are met.
   // For instance: if we're on the target page.
   api.onPageChange(() => {
-    console.log('page changed:', window.location.pathname)
+    // console.log('page changed:', window.location.pathname)
     remove_topics()
     subscribe_selector()
     remove_subscribe_when_not_logged_in()
@@ -165,19 +165,21 @@
     whenShadowDomIsReady(overrideStyle)
   }
 
+  window._onSidebarClicked = function() {
+    setTimeout(() => {
+      const footer = document.querySelector('.sidebar-footer-container')
+      console.log('footer:', footer)
+      footer.remove()
+    }, 50)
+  }
+
   function watch_hamburger_menu() {
-    // look up whether we're on mobile
-    const site = api._lookupContainer("service:site")
-    console.log('mobile?', site?.mobileView)
-    if (true) {
-      const toggle = document.querySelector('.header-sidebar-toggle .btn-sidebar-toggle')
-      if (!toggle) return
-      toggle.addEventListener('click', () => {
-        console.log('sidebar toggle got clicked')
-        // allow me to debug in the browser
-        if (window._onSidebarClicked) window._onSidebarClicked()
-      })
-    }
+    // make sure the toggle exists
+    const toggle = document.querySelector('.header-sidebar-toggle .btn-sidebar-toggle')
+    if (!toggle) return
+
+    // wait for the sidebar to render and then add the donate button
+    toggle.addEventListener('click', () => setTimeout(add_donate_button, 50))
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
