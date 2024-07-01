@@ -172,7 +172,11 @@
     if (true) {
       const toggle = document.querySelector('.header-sidebar-toggle .btn-sidebar-toggle')
       if (!toggle) return
-      toggle.addEventListener('click', () => console.log('sidebar toggle got clicked'))
+      toggle.addEventListener('click', () => {
+        console.log('sidebar toggle got clicked')
+        // allow me to debug in the browser
+        if (window._onSidebarClicked) window._onSidebarClicked()
+      })
     }
   }
 </script>
