@@ -11,7 +11,7 @@
     subscribe_selector()
     remove_header_links_when_not_logged_in()
     add_donate_button()
-    watch_hamburger_menu()
+    setTimeout(watch_hamburger_menu, 50)
   })
 
   // Remove Topics (from Categories Pages)
@@ -186,7 +186,7 @@
 
     // make sure the toggle exists
     const toggle = document.querySelector(selector)
-    if (!toggle) return
+    if (!toggle) return console.log('could not find menu toggle:', selector)
 
     // wait for the sidebar to render and then add the donate button
     toggle.addEventListener('click', () => setTimeout(add_donate_button, 50))
