@@ -183,7 +183,7 @@
 
     // Get the appropriate selector;
     // Discourse renders the toggle with entirely different class/id structure based on mobile or desktop.
-    const selector = site?.mobileView ? '.header-sidebar-toggle button' : '.header-dropdown-toggle button'
+    const selector = site?.mobileView ? '.header-dropdown-toggle button' : '.header-sidebar-toggle button'
 
     // make sure the toggle exists
     const toggle = document.querySelector(selector)
