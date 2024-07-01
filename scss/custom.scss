@@ -106,6 +106,6 @@ section.about.stats {
 // *------------------------------------------------*
 // override tertiary color for links
 // but don't set this too strongly (e.g. !important) as links in other areas may be colored differently
-a {
+a, a:visited {
   color: #0055ff;
 }
