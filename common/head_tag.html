@@ -177,8 +177,16 @@
   }
 
   function watch_hamburger_menu() {
+    // look up whether we're on mobile
+    const site = api._lookupContainer("service:site")
+    console.log('mobile?', site?.mobileView)
+
+    // Get the appropriate selector;
+    // Discourse renders the toggle with entirely different class/id structure based on mobile or desktop.
+    const selector = site?.mobileView ? '.header-sidebar-toggle button' : '.header-dropdown-toggle button'
+
     // make sure the toggle exists
-    const toggle = document.querySelector('.header-sidebar-toggle button')
+    const toggle = document.querySelector(selector)
     if (!toggle) return
 
     // wait for the sidebar to render and then add the donate button
