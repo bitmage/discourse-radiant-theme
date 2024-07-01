@@ -11,7 +11,8 @@
     subscribe_selector()
     remove_header_links_when_not_logged_in()
     add_donate_button()
-    setTimeout(watch_hamburger_menu, 50)
+    watch_hamburger_menu()
+    //setTimeout(watch_hamburger_menu, 50)
   })
 
   // Remove Topics (from Categories Pages)
@@ -190,6 +191,7 @@
 
     // wait for the sidebar to render and then add the donate button
     toggle.addEventListener('click', () => setTimeout(add_donate_button, 50))
+    toggle.addEventListener('touchend', () => setTimeout(add_donate_button, 50))
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
