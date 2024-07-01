@@ -124,9 +124,8 @@
 
   function remove_header_links_when_not_logged_in() {
     if (api.getCurrentUser()) return
-    document.querySelector('.custom-header-links a[href="/s"]').parentElement.remove()
-    document.querySelector('li.header-icon-messages').remove()
-    document.querySelector('li.search-dropdown').remove()
+    const subscribe = document.querySelector('.custom-header-links a[href="/s"]')
+    if (subscribe) subscribe.parentElement.remove()
   }
 
   function add_donate_button() {
