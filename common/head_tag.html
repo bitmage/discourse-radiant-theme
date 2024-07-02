@@ -3,12 +3,12 @@
   const regex_category_page = /\/c\/(\w+)\/\d+/
   const regex_product_page = /\/s\/(\w+)/
 
-  api.appEvents.on("sidebar-hamburger-dropdown:rendered", () => console.log('rendered sidebar'))
+  api.onAppEvent("sidebar-hamburger-dropdown:rendered", () => console.log('rendered sidebar'))
 
   // Each helper function here is a "feature" that triggers when its conditions are met.
   // For instance: if we're on the target page.
-  api.onPageChange(() => {
-    console.log('page changed:', window.location.pathname)
+  api.onPageChange((url, title) => {
+    console.log('page changed:', url, 'title:', title)
     remove_topics()
     subscribe_selector()
     remove_header_links_when_not_logged_in()
