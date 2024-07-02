@@ -133,3 +133,11 @@ tr.category-topic-link {
 footer.category-topics-count {
   display: none;
 }
+
+table.topic-list {
+  margin-bottom: 12px;
+}
+
+.categories-list .category-list td:last-child {
+  padding-bottom: 0;
+}
