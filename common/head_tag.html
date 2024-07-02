@@ -3,7 +3,7 @@
   const regex_category_page = /\/c\/(\w+)\/\d+/
   const regex_product_page = /\/s\/(\w+)/
 
-  api.onAppEvent("sidebar-hamburger-dropdown:rendered", () => console.log('rendered sidebar'))
+  api.onAppEvent("sidebar-hamburger-dropdown:rendered", add_donate_button)
 
   // Each helper function here is a "feature" that triggers when its conditions are met.
   // For instance: if we're on the target page.
@@ -183,18 +183,19 @@
     const site = api._lookupContainer("service:site")
     console.log('mobile?', site?.mobileView)
 
-    // Get the appropriate selector;
     // Discourse renders the toggle with entirely different class/id structure based on mobile or desktop.
-    const selector = site?.mobileView ? '.header-dropdown-toggle button' : '.header-sidebar-toggle button'
+    // see top of file: api.onAppEvent("sidebar-hamburger-dropdown:rendered") for mobile variation of this code
+    if (site?.mobileView) {
+      console.log('no listeners added for mobile')
+    } else {
+      // make sure the toggle exists
+      const toggle = document.querySelector('.header-sidebar-toggle button')
+      if (!toggle) return console.log('could not find menu toggle:', selector)
 
-    // make sure the toggle exists
-    const toggle = document.querySelector(selector)
-    if (!toggle) return console.log('could not find menu toggle:', selector)
-
-    // wait for the sidebar to render and then add the donate button
-    toggle.addEventListener('click', () => setTimeout(add_donate_button, 50))
-    toggle.addEventListener('touchend', () => setTimeout(add_donate_button, 50))
-    console.log('added event listeners')
+      // wait for the sidebar to render and then add the donate button
+      toggle.addEventListener('click', () => setTimeout(add_donate_button, 50))
+      console.log('added desktop event listeners')
+    }
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
