@@ -96,21 +96,22 @@
 
   // hacky hacky way of getting additional HTML into the subscription page
   function update_description() {
+    const description = `
+<h2>Yellow.Forum Subscription</h2>
+<hr>
+<p>We offer three supporting memberships: Bronze, Silver and Gold. Each one provides you with a badge next to your profile picture, recognizing your level of contribution.</p>
+
+Supporting members will be able to chat with Experts on the forum, and will have opportunities to participate in live events including our upcoming <a href="/t/interactive-debate-show/47">Live Interactive Debate Show</a>.
+
+<p>Once per month, Gold members will be invited to a live Q&A with founders Richard and Brandon, which will be posted two days later in Yellow.Forum and on social media.</p>
+
+<p>As a non-profit organisation, 100% of your Supporting Membership helps fund <a href="/about">Our Mission</a>.</p>
+
+<p>Thank you for your support!</p>
+<p><strong>Richard & Brandon</strong></p>
+    `
     const container = document.querySelector('.discourse-subscriptions-confirmation-billing')
-    const hr = container.querySelector('hr')
-
-    const first = document.createElement('p')
-    first.textContent = 'Our Shows, News, and Articles are here to raise awareness and will always remain free.  In addition you can participate in conversations in many areas of the forum, but may not be able to create new posts.'
-
-    const third = document.createElement('p')
-    third.textContent = 'As a non-profit organisation, 100% of your membership funds are applied to our mission: Raising awareness about the rise of Stakeholder Capitalism and promoting discussion and formation of alternatives.  As we develop the platform we will continue to look for ways to enable our community to collect, envision, and build a brighter future.  We thank you for your support, and for joining us on this journey!'
-
-    const salutation = document.createElement('p')
-    salutation.textContent = 'Richard and Brandon'
-
-    hr.after(first)
-    container.append(third)
-    container.append(salutation)
+    container.innerHTML = description
   }
 
   function subscribe_selector() {
