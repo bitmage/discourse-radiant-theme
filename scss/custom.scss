@@ -116,9 +116,14 @@ a, a:visited {
 
 // Welcome Link Banner
 // *------------------------------------------------*
+.above-main-container-outlet.welcome-link-banner-connectors .welcome-link-banner {
+  padding: 0;
+}
+
 .above-main-container-outlet.welcome-link-banner-connectors .welcome-wrapper {
-  width: 99%;
-  margin: 1em auto;
+  width: 100%;
+  margin: 0 auto;
+  filter: drop-shadow(0px 0px 4px rgb(33 33 33 / 15%));
 }
 
 // *------------------------------------------------*
