@@ -23,6 +23,21 @@ li.search-dropdown {
   display: none;
 }
 
+// Signup/Login
+// *------------------------------------------------*
+
+.create-account .d-modal__footer-buttons #login-link {
+  display: none;
+}
+
+.login-left-side #new-account-link {
+  display: none;
+}
+
+.login-right-side {
+    display: none;
+}
+
 // Topic Header
 // *------------------------------------------------*
 .category-breadcrumb {
