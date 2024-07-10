@@ -178,4 +178,9 @@ table.topic-list {
   padding-bottom: 0;
 }
 
+// override hiding this on mobile
+.panel .header-buttons .sign-up-button {
+  display: inline-flex;
+}
+
 
