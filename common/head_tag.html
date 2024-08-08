@@ -2,6 +2,7 @@
   const tag_id = 'remove-topics-from-categories'
   const regex_category_page = /\/c\/(\w+)\/\d+/
   const regex_product_page = /\/s\/(\w+)/
+  const regex_topic_page = /\/t\/(\w+)/
 
   api.onAppEvent("sidebar-hamburger-dropdown:rendered", add_donate_button)
 
@@ -15,7 +16,20 @@
     add_donate_button()
     watch_hamburger_menu()
     //setTimeout(watch_hamburger_menu, 50)
+    update_share_button()
   })
+
+  function update_share_button() {
+    const matches = window.location.pathname.match(regex_topic_page)
+    const share_links = document.querySelectorAll('.actions button.post-action-menu__copy-link svg')
+    if (matches != null ) {
+      share_links.forEach(l => {
+        const share_text = document.createElement('span')
+        share_text.textContent = 'Share'
+        l.after(share_text)
+      })
+    }
+  }
 
   // Remove Topics (from Categories Pages)
   // (so only the subcategories will display)

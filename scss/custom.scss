@@ -4,6 +4,19 @@ button.invite, button.new-topic {
   display: none;
 }
 
+// Share Link
+// *------------------------------------------------*
+.actions button.post-action-menu__copy-link {
+  background-color: var(--tertiary);
+}
+
+.actions button.post-action-menu__copy-link svg {
+  color: #666666;
+}
+.actions button.post-action-menu__copy-link span {
+  margin-left: 4px;
+}
+
 // Header
 // *------------------------------------------------*
 
