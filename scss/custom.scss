@@ -116,6 +116,16 @@ section.about.stats {
   display: none;
 }
 
+// is z-index necessary here?  it interferes with the exit-intent popup box
+.topic-thumbnails-grid,
+.topic-thumbnails-masonry {
+  .activity,
+  .main-link,
+  .posters {
+    z-index: auto;
+  }
+}
+
 // Gated Topic
 // *------------------------------------------------*
 .custom-gated-topic-container {
