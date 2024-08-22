@@ -11,5 +11,12 @@
       "header_primary": "4d4d4d"
     }
   },
+  "assets": {
+    "facebook": "assets/facebook.svg",
+    "instagram": "assets/instagram.svg",
+    "rumble": "assets/rumble.svg",
+    "twitter": "assets/twitter.svg",
+    "youtube": "assets/youtube.svg"
+  },
   "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
 }

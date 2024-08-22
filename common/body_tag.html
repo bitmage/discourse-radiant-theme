@@ -1,5 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.12/ouibounce.min.js" integrity="sha512-3YT22Fw1AUW4I3ww7mROUxleX/WhHY1uh6ZbWL5bRyqDNc8UE8UQf4otTicqtpzXEeSa2Ct3aZ/8gpjVcsz9LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script type="text/x-handlebars">
 <div id="ouibounce-modal">
   <div class="underlay"></div>
   <div class="modal">
@@ -19,11 +20,11 @@
       <p>Please also check us out on social media:</p>
       <br/>
       <div class="center-row">
-        <a href="https://x.com/YellowForum"><img src="/assets/twitter.svg" class="icon-social"></img></a>
-        <a href="https://www.instagram.com/yellow.forum"><img src="/assets/insta.svg" class="icon-social"></img></a>
-        <a href="https://www.facebook.com/yellow.forum"><img src="/assets/facebook.svg" class="icon-social"></img></a>
-        <a href="https://www.youtube.com/@YellowForum"><img src="/assets/youtube.svg" class="icon-social"></img></a>
-        <a href="https://rumble.com/user/yellowforum"><img src="/assets/rumble.svg" class="icon-social"></img></a>
+        <a href="https://x.com/YellowForum"><img src="{{theme-setting "theme_uploads.twitter"}}" class="icon-social"></img></a>
+        <a href="https://www.instagram.com/yellow.forum"><img src="{{theme-setting "theme_uploads.instagram"}}" class="icon-social"></img></a>
+        <a href="https://www.facebook.com/yellow.forum"><img src="{{theme-setting "theme_uploads.facebook"}}" class="icon-social"></img></a>
+        <a href="https://www.youtube.com/@YellowForum"><img src="{{theme-setting "theme_uploads.youtube"}}" class="icon-social"></img></a>
+        <a href="https://rumble.com/user/yellowforum"><img src="{{theme-setting "theme_uploads.rumble"}}" class="icon-social"></img></a>
       </div>
     </div>
 
@@ -32,6 +33,7 @@
     </div>
   </div>
 </div>
+</script>
 
 <script type="text/javascript">
   //const modal = ouibounce(document.getElementById('ouibounce-modal'), {
