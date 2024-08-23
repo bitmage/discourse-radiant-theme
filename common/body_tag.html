@@ -1,6 +1,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.12/ouibounce.min.js" integrity="sha512-3YT22Fw1AUW4I3ww7mROUxleX/WhHY1uh6ZbWL5bRyqDNc8UE8UQf4otTicqtpzXEeSa2Ct3aZ/8gpjVcsz9LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script type="text/x-handlebars">
 <div id="ouibounce-modal">
   <div class="underlay"></div>
   <div class="modal">
@@ -20,11 +19,11 @@
       <p>Please also check us out on social media:</p>
       <br/>
       <div class="center-row">
-        <a href="https://x.com/YellowForum"><img src="{{theme-setting "theme_uploads.twitter"}}" class="icon-social"></a>
-        <a href="https://www.instagram.com/yellow.forum"><img src="{{theme-setting "theme_uploads.instagram"}}" class="icon-social"></a>
-        <a href="https://www.facebook.com/yellow.forum"><img src="{{theme-setting "theme_uploads.facebook"}}" class="icon-social"></a>
-        <a href="https://www.youtube.com/@YellowForum"><img src="{{theme-setting "theme_uploads.youtube"}}" class="icon-social"></a>
-        <a href="https://rumble.com/user/yellowforum"><img src="{{theme-setting "theme_uploads.rumble"}}" class="icon-social"></a>
+        <a href="https://x.com/YellowForum" class="icon-social twitter"></a>
+        <a href="https://www.instagram.com/yellow.forum" class="icon-social instagram"></a>
+        <a href="https://www.facebook.com/yellow.forum" class="icon-social facebook"></a>
+        <a href="https://www.youtube.com/@YellowForum" class="icon-social youtube"></a>
+        <a href="https://rumble.com/user/yellowforum" class="icon-social rumble"></a>
       </div>
     </div>
 
@@ -33,7 +32,6 @@
     </div>
   </div>
 </div>
-</script>
 
 <script type="text/javascript">
   //const modal = ouibounce(document.getElementById('ouibounce-modal'), {
@@ -62,8 +60,26 @@
 }
 .icon-social {
   width: 35px;
+  height: 35px;
   margin-right: 10px;
 }
+
+.icon-social.twitter {
+  background-image: url($twitter)
+}
+.icon-social.instagram {
+  background-image: url($instagram)
+}
+.icon-social.facebook {
+  background-image: url($facebook)
+}
+.icon-social.youtube {
+  background-image: url($youtube)
+}
+.icon-social.rumble {
+  background-image: url($rumble)
+}
+
 </style>
 
 <style>
