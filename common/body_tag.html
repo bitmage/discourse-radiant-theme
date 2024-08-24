@@ -1,6 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.12/ouibounce.min.js" integrity="sha512-3YT22Fw1AUW4I3ww7mROUxleX/WhHY1uh6ZbWL5bRyqDNc8UE8UQf4otTicqtpzXEeSa2Ct3aZ/8gpjVcsz9LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://app.captchacomplete.com/send.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!--<script src="https://app.captchacomplete.com/send.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 
 <div id="ouibounce-modal">
   <div class="underlay"></div>
@@ -19,7 +19,6 @@
       </form>
 
       <p>Please also check us out on social media:</p>
-      <br/>
       <div class="center-row">
         <a href="https://x.com/YellowForum" class="icon-social twitter">X</a> |
         <a href="https://www.instagram.com/yellow.forum" class="icon-social instagram">Instagram</a> |
@@ -36,6 +35,77 @@
 </div>
 
 <script type="text/javascript">
+const CAPTCHA_COMPLETE_API = 'https://api.captchacomplete.com/verify'
+const globals = {}
+
+addEventListener("DOMContentLoaded", lookForCCForms)
+
+function lookForCCForms() {
+  const forms = [...document.querySelectorAll('form[cc-key]')]
+  console.log('forms:', forms)
+  forms.forEach(f => {
+    loadGrecaptcha(f.attributes['cc-google-sitekey'].value)
+    f.addEventListener("submit", sendToCaptchaComplete, false)
+  })
+}
+
+function loadGrecaptcha(sitekey) {
+  // ensure the site_key is valid
+  if (!/^[0-9a-zA-Z_-]{40}$/.test(sitekey)) {
+    throw new Error('invalid sitekey, not initializing')
+  }
+
+  // remove the script if it already exists
+  document.getElementById('grecaptcha-load')?.remove()
+
+  // and load the GRecaptcha script
+  const s = document.createElement('script')
+  s.setAttribute('src', `https://www.google.com/recaptcha/api.js?render=${sitekey}`)
+  s.setAttribute('id', 'grecaptcha-load')
+  document.head.append(s)
+}
+
+function sendToCaptchaComplete(e) {
+  e.preventDefault()
+  const cckey = e.target.attributes['cc-key']?.value
+  const sitekey = e.target.attributes['cc-google-sitekey']?.value
+  const inputs = [...e.target.querySelectorAll('input')]
+  const DEBUG = !!e.target.attributes['cc-debug']
+  if (DEBUG) console.log('inputs:', inputs)
+
+  const fields = inputs
+    .reduce((fields, e) => {
+      fields[e.name] = e.value
+      return fields
+    }, {})
+
+  grecaptcha.ready(function() {
+    grecaptcha.execute(sitekey, { action: 'submit' }).then(function(token) {
+      sendRequest({ cckey, token, ...fields }, DEBUG)
+    })
+  })
+}
+
+async function sendRequest(fields, DEBUG) {
+  const form = new URLSearchParams(fields)
+
+  // send the request
+  if (DEBUG) console.log('sending request:', fields)
+  const response = await fetch(CAPTCHA_COMPLETE_API, {
+    mode: "cors",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      "Accept": "application/json"
+    },
+    body: form
+  })
+  if (DEBUG) console.log('results:', await response.text())
+  // 200 OK means it succeeded
+}
+<script/>
+
+<script type="text/javascript">
   //const modal = ouibounce(document.getElementById('ouibounce-modal'), {
   //  aggressive: true
   //})
@@ -46,6 +116,13 @@
     .addEventListener('click', closeModal)
   document.querySelector('.underlay')
     .addEventListener('click', closeModal)
+
+  document.querySelector('#ouibounce-modal form')
+    .addEventListener("click", function(event){
+      event.preventDefault() //this should not be necessary
+      closeModal()
+    })
+
 </script>
 
 <style>
