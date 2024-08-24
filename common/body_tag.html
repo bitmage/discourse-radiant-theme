@@ -120,7 +120,7 @@ window.lookForCCForms = lookForCCForms
     .addEventListener('click', closeModal)
 
   document.querySelector('#ouibounce-modal form')
-    .addEventListener("click", function(event){
+    .addEventListener("submit", function(event){
       event.preventDefault() //this should not be necessary
       closeModal()
     })
