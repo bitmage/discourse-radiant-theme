@@ -214,8 +214,9 @@ Supporting members will be able to chat with Experts on the forum, and will have
     }
   }
 
-  const ouibounce_activated = false
+  let ouibounce_activated = false
   function activate_exit_popup() {
+    if (api.getCurrentUser()) return
     if (ouibounce_activated) return
     ouibounce(document.getElementById('ouibounce-modal'), {aggressive: true})
     ouibounce_activated = true
