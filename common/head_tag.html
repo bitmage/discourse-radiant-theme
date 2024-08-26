@@ -17,6 +17,7 @@
     watch_hamburger_menu()
     //setTimeout(watch_hamburger_menu, 50)
     update_share_button()
+    activate_exit_popup()
   })
 
   function update_share_button() {
@@ -211,6 +212,13 @@ Supporting members will be able to chat with Experts on the forum, and will have
       toggle.addEventListener('click', () => setTimeout(add_donate_button, 50))
       console.log('added desktop event listeners')
     }
+  }
+
+  const ouibounce_activated = false
+  function activate_exit_popup() {
+    if (ouibounce_activated) return
+    ouibounce(document.getElementById('ouibounce-modal'), {aggressive: true})
+    ouibounce_activated = true
   }
 </script>
 <script async src="https://js.stripe.com/v3/buy-button.js"></script>
