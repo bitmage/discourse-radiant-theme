@@ -218,6 +218,7 @@ Supporting members will be able to chat with Experts on the forum, and will have
   function activate_exit_popup() {
     if (api.getCurrentUser()) return
     if (ouibounce_activated) return
+    lookForCCForms() //activates GRecaptcha
     ouibounce(document.getElementById('ouibounce-modal'), {aggressive: true})
     ouibounce_activated = true
   }
